@@ -5,6 +5,39 @@ There are two ways to install Tamara .Net SDK in this folder:
 1. Reference your project to Tamara.Net.ClientSDK.dll
 2. Install nuget package 'Tamara_Client_NetSDK.1.0.0.nupkg' with offline mode
 ### Usage
+####Configurate in appsettings.json
+Add a "tamaraPayment" field with baseUrl is Tamara payment's Url, apiToken & notificationPrivateKey are provided in our service.
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "tamaraPayment": {
+    "clientVersion": "1.0.0",
+    "baseUrl": "https://api-sandbox.tamara.co",
+    "requestTimeout": 10,
+    "apiToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhY2NvdW50SWQiOiI0NWQwMzAzOC1kM2I2LTQ1ODctYWY2Ny1hNDNlY2FlYjFiZDMiLCJ0eXBlIjoibWVyY2hhbnQiLCJzYWx0IjoiOTIwNDFjZDVlOTJlNDQ1MDg1ZTQ2NzgyZWFhYTY3NjkiLCJpYXQiOjE1OTIxMzM5NTEsImlzcyI6IlRhbWFyYSJ9.HASQ6UR1fabagwqkivmCqL4cFVDOw2cgBMRm5XPlJiNSfJ-gsgwqnPnEEn6-T7Sj4sU6Niee8pUPqP4_WsVQ6DojignLFg2cmrIS_dMIZyOXrZwMbhH6Y0fX5xt2yBVpEVjRbXVaEY4xgHNfMzLwz3mIqmJ-_xuwDDA-hGQk7xibbewDVdCDviSYRHSdzOPtIhy7dcx0CkyYWOncqpJ9YyePrrA1aqZeyWclxgAuZ6zYzsHM_o2e0zwZDqKi1spY11-s1ULSd1WmAWNwoKwy1C4jThJWlXl_E4-bPR_5CUcMHgy7Je9uN3Zfwuq7XODr7ShTnsEZ-xAQW7BxejqvIA",
+    "notificationPrivateKey": "b28fbd1412c7e40ce7aa625c38763f71",
+    "paths": {
+      "getPaymentType": "/checkout/payment-types",
+      "createCheckout": "/checkout",
+      "authoriseOrder": "/orders/{orderId}/authorise",
+      "cancelOrder": "/orders/{orderId}/cancel",
+      "capture": "/payments/capture",
+      "refund": "/payments/refund",
+      "getOrderDetails": "/orders/{orderId}",
+      "updateOrderReferenceId": "/orders/{orderId}/reference-id",
+      "registerWebHook": "/webhooks",
+      "retrieveWebhook": "/webhooks/{webhookId}",
+      "removeWebhook": "/webhooks/{webhookId}",
+      "updateWebhook": "/webhooks/{webhookId}"
+    }
+  }
+}
 There are two ways:
 ##### 1. Use factory
 - Create a ApiConfiguration instance
