@@ -1,12 +1,14 @@
 # DotNet SDK
 Tamara .NET SDK is a wrapper for the Tamara API.
 ### Installation
-There are two ways to install Tamara .Net SDK in this folder:
+There are two ways to install Tamara .Net SDK in Publish folder:
 1. Reference your project to Tamara.Net.ClientSDK.dll
 2. Install nuget package 'Tamara_Client_NetSDK.1.0.0.nupkg' with offline mode
 ### Usage
-####Configurate in appsettings.json
+#### Configurate in appsettings.json
 Add a "tamaraPayment" field with baseUrl is Tamara payment's Url, apiToken & notificationPrivateKey are provided in our service.
+Example:
+```
 {
   "Logging": {
     "LogLevel": {
@@ -38,6 +40,7 @@ Add a "tamaraPayment" field with baseUrl is Tamara payment's Url, apiToken & not
     }
   }
 }
+```
 There are two ways:
 ##### 1. Use factory
 - Create a ApiConfiguration instance
@@ -105,4 +108,18 @@ Body:
   "data": []
 }
 ```
+### API Support:
+1. GetPaymentTypes  --- /checkout/payment-types
+2. CreateCheckout --- /checkout
+3. AuthoriseOrder --- /orders/{orderId}/authorise
+4. CancelOrder --- /orders/{orderId}/cancel
+5. Capture --- /payments/capture
+6. Refund --- /payments/refund
+7. GetOrderDetails --- /orders/{orderId}
+8. UpdateOrderReferenceId --- /orders/{orderId}/reference-id
+9. RegisterWebhook --- /webhooks
+10. RetrieveWebhook --- /webhooks/{webhookId}
+11. RemoveWebhook --- /webhooks/{webhookId}
+12. UpdateWebhook --- /webhooks/{webhookId}
+13. GetOrderDetailsByReference --- /merchants/orders/reference-id/{orderReferenceId}
 
